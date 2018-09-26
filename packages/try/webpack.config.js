@@ -4,13 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.jsx'],
+  entry: ['./src/index.jsx'],
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'try.js',
-    libraryTarget: 'umd',
-
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
