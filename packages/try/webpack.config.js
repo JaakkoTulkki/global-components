@@ -8,7 +8,9 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'try.js',
+    libraryTarget: 'umd',
+
   },
   module: {
     rules: [
@@ -48,10 +50,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({template: 'static/index.html'}),
-    new ExtractTextPlugin('/css/[name].css'),
-  ],
   devServer: {
     historyApiFallback: true,
   },
