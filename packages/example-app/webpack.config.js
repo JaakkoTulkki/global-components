@@ -16,41 +16,21 @@ module.exports = {
       {test: /\.(png|woff|woff2|eot|ttf|otf|svg)$/, loader: 'file-loader?name=fonts/[name].[ext]'},
       {
         test: /\.s?css$/,
-        // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/159
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-            loader: 'file-loader',
+        use: [
+          {loader: 'style-loader'},
+          {
+            loader: 'css-loader',
             options: {
-                name: '[name].css',
-                context: './src/css/',
-                outputPath: 'css/',
-                publicPath: '../'
+              modules: true
             }
-        },
-        {
-            loader: 'extract-loader'
-        },
-            {
-            loader: "css-loader",
-            options: {autoprefixer: false, sourceMap: true, importLoaders: 1}
           },
-            {loader: 'sass-loader'},
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [autoprefixer]
-              },
-            },
+          {loader: 'sass-loader'},
           ],
-        }),
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({template: 'static/index.html'}),
-    new ExtractTextPlugin('/css/[name].css'),
   ],
   devServer: {
     historyApiFallback: true,

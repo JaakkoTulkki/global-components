@@ -34,6 +34,7 @@
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "try": "0.0.0"
+    "try": "0.0.0",
+    "fonduefork": "0.0.0"
   }
 }
