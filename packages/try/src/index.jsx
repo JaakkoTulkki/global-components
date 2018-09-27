@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const Button = ({type, children}) => <button type="button" className={`btn btn-${type}`}>{children}</button>;
+export const Button = ({styles, type, children}) =>
+  <button type="button" className={`${styles.btn} ${styles[`btn-${type}`]}`}>{children}</button>;
+
